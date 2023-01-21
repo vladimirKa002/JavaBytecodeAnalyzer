@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="CENTER" prefHeight="259.0" prefWidth="260.0" spacing="15.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerMain">
+   <children>
+      <VBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Choose bytecode generator" />
+            <VBox prefHeight="54.0" prefWidth="210.0" spacing="5.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" selected="true" text="ASM">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="bytecode_generator" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="BCEL" toggleGroup="$bytecode_generator" />
+                  <RadioButton mnemonicParsing="false" text="Javassist" toggleGroup="$bytecode_generator" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <Button mnemonicParsing="false" onAction="#pickFile" text="Choose single file" />
+      <Button mnemonicParsing="false" onAction="#pickDirectory" text="Choose directory" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+   </padding>
+</VBox>
