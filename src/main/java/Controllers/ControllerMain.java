@@ -1,9 +1,6 @@
 package Controllers;
 
-import BytecodeUtils.BytecodeGenerator;
-import BytecodeUtils.BytecodeGeneratorASM;
-import BytecodeUtils.BytecodeGeneratorBCEL;
-import BytecodeUtils.BytecodeGeneratorJavassist;
+import BytecodeUtils.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -108,9 +105,16 @@ public class ControllerMain {
 
     private BytecodeGenerator getSelectedBytecodeGenerator(){
         String selectedGenerator = ((RadioButton) bytecode_generator.getSelectedToggle()).getText();
-        if (selectedGenerator.equals("ASM")) return new BytecodeGeneratorASM();
-        else if (selectedGenerator.equals("BCEL")) return new BytecodeGeneratorBCEL();
-        else return new BytecodeGeneratorJavassist();
+        switch (selectedGenerator) {
+            case "Javap":
+                return new BytecodeGeneratorJavap();
+            case "ASM":
+                return new BytecodeGeneratorASM();
+            case "BCEL":
+                return new BytecodeGeneratorBCEL();
+            default:
+                return new BytecodeGeneratorJavassist();
+        }
     }
 
     private List<File> getFilesInDirectory(String path) {

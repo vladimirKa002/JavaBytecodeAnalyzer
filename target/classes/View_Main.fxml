@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
+
 <VBox alignment="CENTER" prefHeight="259.0" prefWidth="260.0" spacing="15.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerMain">
    <children>
       <VBox alignment="CENTER_LEFT" spacing="10.0">
@@ -10,11 +14,12 @@
             <Label text="Choose bytecode generator" />
             <VBox prefHeight="54.0" prefWidth="210.0" spacing="5.0">
                <children>
-                  <RadioButton mnemonicParsing="false" selected="true" text="ASM">
+                  <RadioButton mnemonicParsing="false" selected="true" text="Javap">
                      <toggleGroup>
                         <ToggleGroup fx:id="bytecode_generator" />
                      </toggleGroup>
                   </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="ASM" toggleGroup="$bytecode_generator" />
                   <RadioButton mnemonicParsing="false" text="BCEL" toggleGroup="$bytecode_generator" />
                   <RadioButton mnemonicParsing="false" text="Javassist" toggleGroup="$bytecode_generator" />
                </children>
